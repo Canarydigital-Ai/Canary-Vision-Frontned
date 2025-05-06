@@ -49,13 +49,3 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
 
 export default DashboardHeader;
 
-// components/SideNavigation.tsx
-
-
-// components/StatCard.tsx
-
-
-// components/AnalyticsChart.tsx
-
-
-// components/OverviewPanel.tsx

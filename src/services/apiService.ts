@@ -7,21 +7,48 @@ export const ApiService = {
   /**
    * Fetch real-time frame data from the backend
    */
-  async getFrameData(): Promise<FrameData> {
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/frame-data`);
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+    /**
+   * Fetch real-time frame data from the backend
+   */
+    async getFrameData(): Promise<FrameData> {
+      try {
+        const response = await fetch('http://localhost:5000/api/frame-data');
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const data: FrameData = await response.json();
+        return data;
+      } catch (error) {
+        console.error('Error fetching frame data:', error);
+        throw error;
       }
-      
-      const data: FrameData = await response.json();
-      return data;
-    } catch (error) {
-      console.error('Error fetching frame data:', error);
-      throw error;
-    }
-  },
+    },
+    
+    /**
+     * Fetch frame image if it's not included in the frame data
+     */
+    async getFrameImage(): Promise<string> {
+      try {
+        const response = await fetch('http://localhost:5000/api/frame-image');
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        // Option 1: If the API returns a blob
+        const imageBlob = await response.blob();
+        return URL.createObjectURL(imageBlob);
+        
+        // Option 2: If the API returns base64 data
+        // const data = await response.json();
+        // return `data:image/jpeg;base64,${data.image}`;
+      } catch (error) {
+        console.error('Error fetching frame image:', error);
+        throw error;
+      }
+    },
   
   /**
    * Fetch historical frame data for a specific date range
