@@ -1,3 +1,7 @@
+
+@import "tailwindcss";
+
+
 /* Main App Styles */
 :root {
   --primary-color: #f8dd4f;
