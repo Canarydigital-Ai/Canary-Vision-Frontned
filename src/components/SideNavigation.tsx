@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../assets/Ai-Logo.png'
 
 interface NavigationItem {
   id: string;
@@ -26,13 +27,13 @@ const NavItem: React.FC<{
 }> = ({ item, isActive, onClick, collapsed }) => {
   return (
     <div
-      className={`flex items-center p-3 mb-2 rounded-lg cursor-pointer transition-all duration-200 ${
-        isActive ? 'bg-slate-900 text-white' : 'text-slate-400 hover:bg-white/5'
+      className={`flex items-center  p-3 mb-2 rounded-lg cursor-pointer transition-all duration-200 ${
+        isActive ? 'bg-[#F1EF7E0F] text-[#F1EF7E]' : 'text-slate-400 hover:bg-white/5'
       }`}
       onClick={onClick}
     >
-      <span className={`text-xl ${!collapsed ? 'mr-3' : ''}`}>{item.icon}</span>
-      {!collapsed && <span className="text-sm">{item.label}</span>}
+     {collapsed &&  <span className={`text-xl ${!collapsed ? 'mr-3' : ''}`}>{item.icon}</span>}
+      {!collapsed && <span className="text-lg font-semibold">{item.label}</span>}
     </div>
   );
 };
@@ -54,15 +55,15 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
   ];
 
   return (
-    <aside className={`bg-slate-800 flex flex-col h-full transition-all duration-300 ${
-      collapsed ? 'w-20' : 'w-64'
+    <aside className={`bg-[#080F17] flex flex-col h-full transition-all duration-300 overflow-hidden ${
+      collapsed ? 'w-20' : 'w-80'
     }`}>
       {/* Header/Logo */}
       <div className="p-6">
-        <div className="mb-8">
-          <h2 className="text-xl text-yellow-400 truncate">{companyName}</h2>
+        <div className="mb-8 border-b-2 border-[#d4d1d1] pb-1">
+          <h2 className="text-[28.43px] font-medium text-yellow-400 truncate">{companyName}</h2>
           {!collapsed && (
-            <p className="text-sm text-slate-400">{companyTagline}</p>
+            <p className="text-base text-slate-400">{companyTagline}</p>
           )}
         </div>
 
@@ -81,15 +82,15 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
 
         {/* Recent Reports Section */}
         {!collapsed && recentReports.length > 0 && (
-          <div className="mb-8">
-            <h3 className="text-sm text-slate-400 mb-4 pl-2">Recent Reports</h3>
+          <div className="mb-8 mt-12">
+            <h3 className="text-xl font-bold  text-[#D6DDE6] mb-4 pl-2">Articles for you</h3>
             {recentReports.map((report, index) => (
               <div
                 key={index}
                 className="flex justify-between items-center p-3 mb-2 rounded-lg cursor-pointer hover:bg-white/5"
               >
                 <div>
-                  <div className="text-sm mb-1">{report.title}</div>
+                  <div className="text-sm mb-1 text-[#F1EF7E]">{report.title}</div>
                   <div className="text-xs text-slate-400">{report.views} views</div>
                 </div>
                 <span className="text-slate-400">→</span>
@@ -102,11 +103,10 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
       {/* Footer with company info */}
       <div className="mt-auto p-6 border-t border-slate-700">
         <div className="flex items-center">
-          <span className="text-xl mr-3">🎥</span>
+          
           {!collapsed && (
             <div>
-              <div className="text-sm">{companyName}</div>
-              <div className="text-xs text-slate-400">{companyTagline}</div>
+              <img src={Logo} alt="Logo" />
             </div>
           )}
         </div>
