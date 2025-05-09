@@ -122,7 +122,7 @@ console.log(frames,'aaaaaaaaaaaaaa')
     fetchFrameData();
     
     // Setup periodic updates (every 5 seconds)
-    // const intervalId = setInterval(fetchFrameData, 3000);
+    const intervalId = setInterval(fetchFrameData, 3000);
     
     // // Mock data for demonstration
     const mockTimeHistory = Array.from({ length: 24 }, (_, i) => ({
@@ -144,7 +144,7 @@ console.log(frames,'aaaaaaaaaaaaaa')
       { area: "Electronics", count: 65 }
     ]);
     
-    // return () => clearInterval(intervalId);
+    return () => clearInterval(intervalId);
   }, [avgTimeSpent]);
   
   // Sample recent reports for the navigation

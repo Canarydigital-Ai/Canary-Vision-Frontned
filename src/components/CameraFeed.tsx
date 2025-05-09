@@ -57,11 +57,11 @@ const CameraFeed: React.FC<CameraFeedProps> = ({
   return (
     <div className="mb-10">
       <div className="flex items-center mb-2 ">
-        <div className="flex items-center">
+        <div className="flex items-center mb-3">
           <div className="bg-slate-700 rounded-full w-8 h-8 flex items-center justify-center mr-2">
             <span className="text-yellow-400">📹</span>
           </div>
-          <h2 className="text-[19.36px] font-bold mb-4">{name}</h2>
+          <h2 className="text-[19.36px] font-bold ">{name}</h2>
         </div>
         <div className="ml-3 flex items-center">
           <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-green-400' : 'bg-red-400'} mr-1`}></span>
@@ -166,13 +166,13 @@ const CameraFeed: React.FC<CameraFeedProps> = ({
                 <div className="text-sm font-bold text-slate-400 mb-1">Total Staff</div>
                 <div className="text-2xl font-semibold">{sidePanel.total}</div>
               </div>
-              <div className="bg-[#FFFFFF0A] border-[1.5px] border-[#FFFFFF33] rounded-[12px] p-4">
+              {/* <div className="bg-[#FFFFFF0A] border-[1.5px] border-[#FFFFFF33] rounded-[12px] p-4">
                 <div className="text-sm font-bold text-slate-400 mb-1">Staff In Kitchen</div>
                 <div className="text-2xl font-semibold">{sidePanel.inKitchen}</div>
-              </div>
+              </div> */}
               <div className="bg-[#FFFFFF0A] border-[1.5px] border-[#FFFFFF33] rounded-[12px] p-4">
                 <div className="text-sm font-bold text-slate-400 mb-1">Without Cap</div>
-                <div className="text-white text-sm font-bold">{sidePanel.noCap.kitchen_without_capcount} Staff</div>
+                <div className="text-white text-sm font-bold">1 Staff</div>
               </div>
               <div className="bg-slate-700 rounded-xl p-4 space-y-2">
               <div className="text-sm font-bold text-slate-400 mb-1">Cropped Staff Without Cap</div>
