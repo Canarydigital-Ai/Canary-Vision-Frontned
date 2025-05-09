@@ -71,12 +71,12 @@ const HeatmapModal: React.FC<{
               <div className="text-green-500 text-xs">+2%</div>
             </div>
             
-            <div className="bg-[#FFFFFF0A] p-4 rounded-lg md:col-span-1 col-span-2 border border-[#FFFFFF33]">
+            {/* <div className="bg-[#FFFFFF0A] p-4 rounded-lg md:col-span-1 col-span-2 border border-[#FFFFFF33]">
               <h3 className="text-slate-400 text-sm mb-1">Insights</h3>
               <div className="text-white text-sm">
                 Over the last week customer footfall has increased by 40%
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
